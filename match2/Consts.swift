@@ -121,8 +121,8 @@ struct Consts {
         static let score = "0"
         static let gameOver = "Game Over"
         static let retry = "Retry"
-        static let timer = "3"
-        static let highScore = "HS: "
+        static let timer = "120"
+        static let highScore = "HighScore: "
         static let title = "Demo Match 2"
     }
         

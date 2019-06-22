@@ -52,7 +52,7 @@ class BlockSprite: ButtonNode {
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         if GameManager.shared.isGameOver { state = .normal; return }
-        if GameBoard.shared.hasJustMatched {return}
+        if GameBoard.shared.hasJustMatched { return }
         guard state == .highlighted else { return }
         gridManager.floodFill(color: colorName, position: gridPosition)
         GameBoard.shared.deleteBlocks()

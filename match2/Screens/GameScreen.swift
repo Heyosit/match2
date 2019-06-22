@@ -50,7 +50,8 @@ class GameScreen: BaseScreen {
 //        if !gameManager.isWaiting {return}
         if gameManager.isGameOver {
             gameOver()
-            RootViewController.shared.skView.presentScene(GameOverScreen())
+            let transition = SKTransition.fade(with: .white, duration: 1)
+            RootViewController.shared.skView.presentScene(GameOverScreen(), transition: transition)
 
         }
         if !gameManager.isGameStarted {return}
