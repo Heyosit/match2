@@ -28,8 +28,15 @@ class GameScreen: BaseScreen {
         super.createSceneContents()
 //        self.view?.ignoresSiblingOrder = true
         hud.initializeGame()
+        gameManager.isGameStarted = true
         self.addChild(gameBoard)
         self.addChild(hud)
+    }
+    
+    public func gameOver() {
+        
+        gameManager.gameOver()
+//        hud.gameOver()
     }
     
     override func update(_ currentTime: TimeInterval) {
@@ -39,12 +46,14 @@ class GameScreen: BaseScreen {
         dt = currentTime - lastUpdateTime
         lastUpdateTime = currentTime
         
-//        if !gameManager.isGameStarted {return}
+        
 //        if !gameManager.isWaiting {return}
-//        if gameManager.isGameOver {
-//            gameOver()
-//        }
-        //        debugPrint("dt: \(dt)")
+        if gameManager.isGameOver {
+            gameOver()
+            RootViewController.shared.skView.presentScene(GameOverScreen())
+
+        }
+        if !gameManager.isGameStarted {return}
         dt = (dt * 1000).rounded() / 1000
         hud.timeToRespondRemaining = -dt
     }

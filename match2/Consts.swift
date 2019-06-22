@@ -22,18 +22,17 @@ enum Positions {
     
     static let board = Consts.Positions.screenMid
     static let blockSide = CGFloat(Consts.Sizes.block.width + Consts.Graphics.spacingWidth)
-    static let startingBlock = CGPoint(x: 0 - Consts.Sizes.board.width / 2 + Consts.Graphics.spacingWidth * 4, y: 0 + (Consts.Sizes.board.height / 2 ) - Consts.Graphics.spacingWidth * 5)
+    static let startingBlock = CGPoint(x: 0 - Consts.Sizes.board.width / 2 + Consts.Graphics.spacingWidth / 2 + Consts.Graphics.outerSpace, y: 0 + (Consts.Sizes.board.height / 2 ) - Consts.Graphics.spacingWidth - Consts.Graphics.outerSpace)
 
     
-    static let highScoreLabel = Consts.Positions.screenTopHalf
+    static let highScoreLabel = CGPoint(x: Consts.Positions.screenWidthMid, y: Consts.Positions.screenLowHalfHeight)
     static let playButton = Consts.Positions.screenMid
     static let gameOverLabel = Consts.Positions.screenMid
     static let scoreLabel = Consts.Positions.screenTopHalf
-    static let highScoreLabelInSettings = CGPoint(x: Consts.Positions.screenWidthMid, y: Consts.Positions.screenLowHalfHeight)
 
     static let retryButton = CGPoint(x: Consts.Positions.screenWidthMid, y: Consts.Positions.screenLowHalfHeight)
     static let timerLabel = CGPoint(x: Consts.Positions.screenWidthMid, y: 0 + Consts.Graphics.spacingHeight)
-    static let backButton = CGPoint(x: Consts.Positions.screenTopLeft.x + Consts.Sizes.squareButton.width / 2, y: Consts.Positions.screenTopLeft.y - Consts.Sizes.squareButton.height / 2 )
+    static let backButton = CGPoint(x: Consts.Positions.screenTopLeft.x + Consts.Sizes.backButton.width / 2, y: Consts.Positions.screenTopLeft.y - Consts.Sizes.backButton.height / 2 )
     static let titleLabel = CGPoint(x: Consts.Positions.screenWidthMid, y: Consts.Graphics.screenHeight - Consts.Graphics.spacingHeight * 1.5)
     
 }
@@ -75,12 +74,13 @@ struct Consts {
         static let board = CGSize(width: Consts.Graphics.screenWidth - (Consts.Graphics.outerSpace * 2) + Consts.Graphics.spacingWidth, height: Consts.Graphics.screenWidth - (Consts.Graphics.outerSpace * 2) + Consts.Graphics.spacingWidth * 2)
         static let block = CGSize(width: (Sizes.board.width / 8) - Consts.Graphics.spacingWidth , height: (Sizes.board.width / 8) - Consts.Graphics.spacingWidth)
         
-        static let squareButton = CGSize(width: Graphics.screenWidth / 4 , height: Graphics.screenWidth / 4)
+        static let playButton = CGSize(width: Graphics.screenWidth / 4 , height: Graphics.screenWidth / 4)
+        static let backButton = CGSize(width: Graphics.screenWidth / 6 , height: Graphics.screenWidth / 6)
         
     }
     struct InitialSettings {
         static let score: Int = 0
-        static let timeToRespond : TimeInterval = 120.0
+        static let timeToRespond : TimeInterval = 120
     }
     struct Names {
         struct LabelNames {

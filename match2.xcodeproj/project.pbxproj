@@ -26,6 +26,8 @@
 		15B0019922BAA88E00099FF7 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B0019822BAA88E00099FF7 /* DataSource.swift */; };
 		15B0019B22BE153D00099FF7 /* HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B0019A22BE153D00099FF7 /* HUD.swift */; };
 		15B0019F22BE22BC00099FF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15B0019E22BE22BC00099FF7 /* Assets.xcassets */; };
+		15B001A422BE695900099FF7 /* BlockSK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B001A322BE695900099FF7 /* BlockSK.swift */; };
+		15CDA28822BEBA1E00D0FC85 /* GameOverScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CDA28722BEBA1E00D0FC85 /* GameOverScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		15B0019822BAA88E00099FF7 /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		15B0019A22BE153D00099FF7 /* HUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUD.swift; sourceTree = "<group>"; };
 		15B0019E22BE22BC00099FF7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		15B001A322BE695900099FF7 /* BlockSK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockSK.swift; sourceTree = "<group>"; };
+		15CDA28722BEBA1E00D0FC85 /* GameOverScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +92,7 @@
 				15B001A122BE47C500099FF7 /* Screens */,
 				15B001A222BE47F300099FF7 /* Nodes */,
 				15B0019222B8E72400099FF7 /* Board.swift */,
+				15B001A322BE695900099FF7 /* BlockSK.swift */,
 				15B0019822BAA88E00099FF7 /* DataSource.swift */,
 				15B0019022B8E13900099FF7 /* UserDefault.swift */,
 				15B0019A22BE153D00099FF7 /* HUD.swift */,
@@ -113,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				15B0018A22B8E04000099FF7 /* GameScreen.swift */,
+				15CDA28722BEBA1E00D0FC85 /* GameOverScreen.swift */,
 				15B0018C22B8E08400099FF7 /* BaseScreen.swift */,
 				15B0017E22B8D91D00099FF7 /* StartScreen.swift */,
 			);
@@ -210,10 +216,12 @@
 				15B0019922BAA88E00099FF7 /* DataSource.swift in Sources */,
 				15B0019522B9904000099FF7 /* GridManager.swift in Sources */,
 				15B0018522B8DC1000099FF7 /* Consts.swift in Sources */,
+				15CDA28822BEBA1E00D0FC85 /* GameOverScreen.swift in Sources */,
 				15B0018D22B8E08400099FF7 /* BaseScreen.swift in Sources */,
 				15B0018B22B8E04000099FF7 /* GameScreen.swift in Sources */,
 				15B0016F22B85F3400099FF7 /* RootViewController.swift in Sources */,
 				15B0019122B8E13900099FF7 /* UserDefault.swift in Sources */,
+				15B001A422BE695900099FF7 /* BlockSK.swift in Sources */,
 				15B0018122B8DA2400099FF7 /* ButtonNode.swift in Sources */,
 				15B0016D22B85F3400099FF7 /* AppDelegate.swift in Sources */,
 				15B0017F22B8D91D00099FF7 /* StartScreen.swift in Sources */,
@@ -293,7 +301,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -348,7 +356,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

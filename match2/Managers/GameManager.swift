@@ -6,7 +6,7 @@
 //  Copyright © 2019 Alessio Perrotti. All rights reserved.
 //
 
-import Foundation
+import AudioToolbox
 
 class GameManager {
     
@@ -15,13 +15,13 @@ class GameManager {
     var timeToRespond: TimeInterval = Consts.InitialSettings.timeToRespond
     var isGameStarted = false
     var isGameOver = false
-    var isWaiting = false
+//    var isWaiting = false
     
     func resetGame() {
         score = Consts.InitialSettings.score
         isGameStarted = false
         isGameOver = false
-        isWaiting = false
+//        isWaiting = false
         
         timeToRespond = Consts.InitialSettings.timeToRespond
     }
@@ -33,9 +33,11 @@ class GameManager {
     
     
     func gameOver() {
+        AudioServicesPlaySystemSound(SystemSoundID(1350))
+
         isGameStarted = false
         isGameOver = true
-        isWaiting = false
+//        isWaiting = false
         checkHighScore()
     }
     

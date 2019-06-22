@@ -10,7 +10,7 @@ import SpriteKit
 
 class PlayButton: ButtonNode {
     
-    let buttonData = ButtonData(texture: Consts.Names.ButtonImageNames.play, name: Consts.Names.NodesNames.play, size: Consts.Sizes.squareButton, position: Positions.playButton, zPosition: Z.buttons)
+    let buttonData = ButtonData(texture: Consts.Names.ButtonImageNames.play, name: Consts.Names.NodesNames.play, size: Consts.Sizes.playButton, position: Positions.playButton, zPosition: Z.buttons)
     
     convenience init() {
         self.init(imageNamed: Consts.Names.ButtonImageNames.play, for: .normal)
@@ -28,7 +28,7 @@ class PlayButton: ButtonNode {
 
 class BackButton: ButtonNode {
     
-    let buttonData = ButtonData(texture: Consts.Names.ButtonImageNames.back, name: Consts.Names.NodesNames.back, size: Consts.Sizes.squareButton, position: Positions.backButton, zPosition: Z.buttons)
+    let buttonData = ButtonData(texture: Consts.Names.ButtonImageNames.back, name: Consts.Names.NodesNames.back, size: Consts.Sizes.backButton, position: Positions.backButton, zPosition: Z.buttons)
     
     convenience init() {
         self.init(imageNamed: Consts.Names.ButtonImageNames.back, for: .normal)

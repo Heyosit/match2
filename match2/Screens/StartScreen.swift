@@ -30,6 +30,9 @@ class StartScreen: SKScene, ButtonNodeDelegate {
         playButton.delegate = self
         scene?.addChild(playButton)
         
+        let highScoreLabel = HighScoreLabel()
+        scene?.addChild(highScoreLabel)
+        
     }
     
     func buttonNodeTapped(_ sender: ButtonNode) {

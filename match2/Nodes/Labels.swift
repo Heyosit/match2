@@ -64,7 +64,22 @@ class TitleLabel: SKLabelCustom {
 
 class HighScoreLabel: SKLabelCustom {
     
-    var labelData = LabelData(name: Consts.Names.LabelNames.highScore, text: Consts.Texts.highScore + "\(UserDefaults.highScore)", position: Positions.highScoreLabelInSettings, zPosition: Z.labels, fontSize: 25, fontColor: nil)
+    var labelData = LabelData(name: Consts.Names.LabelNames.highScore, text: Consts.Texts.highScore + "\(UserDefaults.highScore)", position: Positions.highScoreLabel, zPosition: Z.labels, fontSize: 25, fontColor: nil)
+    
+    override init() {
+        super.init()
+        super.setup(labelData: labelData)
+        name = labelData.text
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+class GameOverLabel: SKLabelCustom {
+    
+    var labelData = LabelData(name: Consts.Names.LabelNames.gameOver, text: Consts.Texts.gameOver, position: Positions.gameOverLabel, zPosition: Z.labels, fontSize: 70, fontColor: .red)
     
     override init() {
         super.init()
