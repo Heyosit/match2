@@ -15,11 +15,7 @@ class SKLabelCustom: SKLabelNode {
         self.name = name
     }
     func setup(labelData: LabelData) {
-        //        let accData = AccessData(name: labelData.name, value: labelData.text, trait: UIAccessibilityTraits.none)
-        //        let accLabel = accessib.shared.setupAccessibility(data: accData)
         self.text = labelData.text
-        //        self.addChild(accLabel)
-        
         self.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.center
         self.verticalAlignmentMode = SKLabelVerticalAlignmentMode.center
         self.zPosition = labelData.zPosition
@@ -28,7 +24,6 @@ class SKLabelCustom: SKLabelNode {
         } else {
             self.position = CGPoint.zero
         }
-        
         if let fontSizeNotNil = labelData.fontSize {
             self.fontSize = fontSizeNotNil
         }
@@ -37,9 +32,6 @@ class SKLabelCustom: SKLabelNode {
         }
         
     }
-    
-    
-    
     func setText(text:String) {
         self.text = text
     }
@@ -80,6 +72,21 @@ class HighScoreLabel: SKLabelCustom {
 class GameOverLabel: SKLabelCustom {
     
     var labelData = LabelData(name: Consts.Names.LabelNames.gameOver, text: Consts.Texts.gameOver, position: Positions.gameOverLabel, zPosition: Z.labels, fontSize: 70, fontColor: .red)
+    
+    override init() {
+        super.init()
+        super.setup(labelData: labelData)
+        name = labelData.text
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+class ScoreLabel: SKLabelCustom {
+    
+    var labelData = LabelData(name: Consts.Names.LabelNames.score, text: Consts.Texts.score + "\(GameManager.shared.score)", position: Positions.scoreLabelInGameOver, zPosition: Z.labels, fontSize: 40, fontColor: nil)
     
     override init() {
         super.init()

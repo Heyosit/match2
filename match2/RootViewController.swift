@@ -20,8 +20,6 @@ class RootViewController: UIViewController {
         view = SKView()
     }
     
-    
-    
     override func viewWillAppear(_ animated: Bool) {
         skView.presentScene(StartScreen())
     }

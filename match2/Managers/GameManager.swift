@@ -15,13 +15,12 @@ class GameManager {
     var timeToRespond: TimeInterval = Consts.InitialSettings.timeToRespond
     var isGameStarted = false
     var isGameOver = false
-//    var isWaiting = false
+    var isPaused = false
     
     func resetGame() {
         score = Consts.InitialSettings.score
         isGameStarted = false
         isGameOver = false
-//        isWaiting = false
         
         timeToRespond = Consts.InitialSettings.timeToRespond
     }
@@ -34,10 +33,8 @@ class GameManager {
     
     func gameOver() {
         AudioServicesPlaySystemSound(SystemSoundID(1350))
-
         isGameStarted = false
         isGameOver = true
-//        isWaiting = false
         checkHighScore()
     }
     
@@ -46,7 +43,4 @@ class GameManager {
             UserDefaults.set(highScore: score)
         }
     }
-    
-    
-    
 }

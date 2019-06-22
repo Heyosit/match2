@@ -74,12 +74,9 @@ class BlockSprite: ButtonNode {
     }
     
     func update(currentTime: TimeInterval) {
-        //        debugPrint("updating block: ", self.gridPosition.row,self.gridPosition.col)
-        
         self.currentTime = currentTime
         if !isAnimating { return }
         if currentTime > endAnimationTime {
-//            debugPrint("animating block: ", self.gridPosition.row,self.gridPosition.col)
             isAnimating = false
             self.match()
         }

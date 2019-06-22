@@ -26,7 +26,6 @@ class GameScreen: BaseScreen {
     
     override func createSceneContents() {
         super.createSceneContents()
-//        self.view?.ignoresSiblingOrder = true
         hud.initializeGame()
         gameManager.isGameStarted = true
         self.addChild(gameBoard)
@@ -34,25 +33,25 @@ class GameScreen: BaseScreen {
     }
     
     public func gameOver() {
-        
         gameManager.gameOver()
-//        hud.gameOver()
     }
     
     override func update(_ currentTime: TimeInterval) {
         // If we don't have a last frame time value, this is the first frame, so delta time will be zero.
+        
         if lastUpdateTime <= 0 { lastUpdateTime = currentTime }
+        if GameManager.shared.isPaused {
+            lastUpdateTime = currentTime
+            GameManager.shared.isPaused = false
+        }
         gameBoard.update(currentTime: currentTime)
         dt = currentTime - lastUpdateTime
         lastUpdateTime = currentTime
         
-        
-//        if !gameManager.isWaiting {return}
         if gameManager.isGameOver {
             gameOver()
             let transition = SKTransition.fade(with: .white, duration: 1)
             RootViewController.shared.skView.presentScene(GameOverScreen(), transition: transition)
-
         }
         if !gameManager.isGameStarted {return}
         dt = (dt * 1000).rounded() / 1000

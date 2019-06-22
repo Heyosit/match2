@@ -101,7 +101,6 @@ class GameBoard: SKNode {
     }
     
     func update(currentTime: TimeInterval) {
-//        debugPrint("updating GameBoard")
         board.update(currentTime: currentTime)
         if hasJustMatched && numberOfBlockMatched == 0 {
             gridManager.checkAtLeastOneMatchPossible()

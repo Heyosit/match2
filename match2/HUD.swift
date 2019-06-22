@@ -48,24 +48,13 @@ class HUD: SKNode {
         initializeGame()
         let labelData = LabelData(name: timerLabel.name!, text: Consts.Texts.timer, position: Positions.timerLabel, zPosition: Z.HUD, fontSize: 60, fontColor: nil)
         timerLabel.setup(labelData: labelData)
-//        timerLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.left
-        
         addChild(scoreLabel)
         addChild(timerLabel)
     }
     
-//    func gameOver() {
-//        gameOverLabel.isHidden = false
-//        highScoreLabel.setText(text: Consts.Texts.highScore + "\(getHighScore())")
-//    }
-    
-    func getHighScore() -> Int {
-        return UserDefaults.highScore
-    }
     
     func initializeGame() {
-//        gameOverLabel.isHidden = true
-        let labelData = LabelData(name: scoreLabel.name!, text: Consts.Texts.score, position: Positions.scoreLabel, zPosition: Z.HUD, fontSize: 80, fontColor: nil)
+        let labelData = LabelData(name: scoreLabel.name!, text: "0", position: Positions.scoreLabel, zPosition: Z.HUD, fontSize: 40, fontColor: nil)
         scoreLabel.setup(labelData: labelData)
     }
     

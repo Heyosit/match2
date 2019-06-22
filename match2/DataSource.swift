@@ -38,7 +38,7 @@ struct DataSource {
     func getTime(x: Int) -> TimeInterval {
         var pow: Double = (Double(x) - 2) / 3
         pow *= pow
-        // The original forumla give too much time, probably this one was the right one?
+        // The original forumla add too much time, probably this one was the right one?
         let totalTime = 10 + (pow * 20)
         return TimeInterval(totalTime)
     }

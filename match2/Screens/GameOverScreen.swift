@@ -27,6 +27,9 @@ class GameOverScreen: BaseScreen {
         
         let gameOverLabel = GameOverLabel()
         scene?.addChild(gameOverLabel)
+        
+        let scoreLabel = ScoreLabel()
+        scene?.addChild(scoreLabel)
 
     }
 }

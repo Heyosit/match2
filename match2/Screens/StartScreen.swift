@@ -25,7 +25,6 @@ class StartScreen: SKScene, ButtonNodeDelegate {
         let titleLabel = TitleLabel()
         scene?.addChild(titleLabel)
         
-        // MARK: PLAY
         let playButton = PlayButton()
         playButton.delegate = self
         scene?.addChild(playButton)
