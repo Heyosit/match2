@@ -31,6 +31,7 @@ class BaseScreen: SKScene, ButtonNodeDelegate {
             switch name {
             case Consts.Names.NodesNames.back:
                 gameManager.resetGame()
+                GameBoard.shared.resetBoard()
                 RootViewController.shared.skView.presentScene(StartScreen())
             default:
                 break

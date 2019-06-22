@@ -14,7 +14,7 @@ let gridManager = GridManager.shared
 class BlockSprite: ButtonNode {
     var dataSource = DataSource()
     var isAnimating = false
-    let timeToAnimate: TimeInterval = 0.2
+    let timeToAnimate: TimeInterval = 0.3
     var currentTime: TimeInterval = 0
     var endAnimationTime: TimeInterval = 0
     var matched: Bool = false {
@@ -43,7 +43,6 @@ class BlockSprite: ButtonNode {
     func setup(position: GridPosition){
         size = Consts.Sizes.block
         name = "block\(position.row)\(position.col)"
-//        anchorPoint = CGPoint.zero
         self.position = CGPoint(x: Positions.startingBlock.x + (Positions.blockSide * CGFloat(position.col)), y: Positions.startingBlock.y - (Positions.blockSide * CGFloat(position.row)))
         gridPosition = position
     }
@@ -57,11 +56,8 @@ class BlockSprite: ButtonNode {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard state == .highlighted else { return }
         gridManager.floodFill(color: colorName, position: gridPosition)
-        //        gridManager.printAllGrid()
         GameBoard.shared.deleteBlocks()
         super.touchesEnded(touches, with: event)
-        
-        
     }
     
     func match(){
@@ -119,8 +115,17 @@ class Board: SKSpriteNode {
                 let block = child as! BlockSprite
                 block.update(currentTime: currentTime)
             }
-            
         }
+    }
+    
+    func reset() {
+        for child in children {
+            if child.name?.contains("block") ?? false {
+                let block = child as! BlockSprite
+                block.setNextColor()
+            }
+        }
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -166,6 +171,10 @@ class GameBoard: SKNode {
             }
             
         }
+    }
+    
+    func resetBoard() {
+        board.reset()
     }
     
     func update(currentTime: TimeInterval) {

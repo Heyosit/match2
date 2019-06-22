@@ -17,8 +17,6 @@ class GameManager {
     var isGameOver = false
     var isWaiting = false
     
-    
-    
     func resetGame() {
         score = Consts.InitialSettings.score
         isGameStarted = false

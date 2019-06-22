@@ -32,7 +32,7 @@ class HUD: SKNode {
                 GameManager.shared.timeToRespond = 0
                 GameManager.shared.isGameOver = true
             }
-            let rounded = (GameManager.shared.timeToRespond * 10).rounded() / 10
+            let rounded = Int(GameManager.shared.timeToRespond)
             timerLabel.setText(text: "\(rounded)")
         }
     }
@@ -40,6 +40,7 @@ class HUD: SKNode {
     override init() {
         super.init()
         self.name = Consts.Names.NodesNames.hud
+        setup()
     }
     
     func setup() {

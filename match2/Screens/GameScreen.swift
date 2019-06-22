@@ -26,9 +26,9 @@ class GameScreen: BaseScreen {
     
     override func createSceneContents() {
         super.createSceneContents()
-        self.view?.ignoresSiblingOrder = true
+//        self.view?.ignoresSiblingOrder = true
+        hud.initializeGame()
         self.addChild(gameBoard)
-        hud.setup()
         self.addChild(hud)
     }
     
