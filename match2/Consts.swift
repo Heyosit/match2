@@ -22,7 +22,7 @@ enum Positions {
     
     static let board = Consts.Positions.screenMid
     static let blockSide = CGFloat(Consts.Sizes.block.width + Consts.Graphics.spacingWidth)
-    static let startingBlock = CGPoint(x: 0 - Consts.Sizes.board.width / 2 + Consts.Graphics.spacingWidth / 2, y: Positions.board.y - (Consts.Sizes.board.height / 1.32 ) - Consts.Graphics.spacingWidth * 2)
+    static let startingBlock = CGPoint(x: 0 - Consts.Sizes.board.width / 2 + Consts.Graphics.spacingWidth * 4, y: 0 + (Consts.Sizes.board.height / 2 ) - Consts.Graphics.spacingWidth * 5)
 
     
     static let highScoreLabel = Consts.Positions.screenTopHalf
@@ -80,7 +80,7 @@ struct Consts {
     }
     struct InitialSettings {
         static let score: Int = 0
-        static let timeToRespond : TimeInterval = 120
+        static let timeToRespond : TimeInterval = 120.0
     }
     struct Names {
         struct LabelNames {

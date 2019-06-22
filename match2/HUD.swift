@@ -45,9 +45,9 @@ class HUD: SKNode {
     func setup() {
         
         initializeGame()
-        var labelData = LabelData(name: timerLabel.name!, text: Consts.Texts.timer, position: Positions.timerLabel, zPosition: Z.HUD, fontSize: nil, fontColor: nil)
+        var labelData = LabelData(name: timerLabel.name!, text: Consts.Texts.timer, position: Positions.timerLabel, zPosition: Z.HUD, fontSize: 60, fontColor: nil)
         timerLabel.setup(labelData: labelData)
-        timerLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.left
+//        timerLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.left
         
         
         let highScoreText = Consts.Texts.highScore + "\(getHighScore())"

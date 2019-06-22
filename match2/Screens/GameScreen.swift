@@ -35,6 +35,7 @@ class GameScreen: BaseScreen {
     override func update(_ currentTime: TimeInterval) {
         // If we don't have a last frame time value, this is the first frame, so delta time will be zero.
         if lastUpdateTime <= 0 { lastUpdateTime = currentTime }
+        gameBoard.update(currentTime: currentTime)
         dt = currentTime - lastUpdateTime
         lastUpdateTime = currentTime
         

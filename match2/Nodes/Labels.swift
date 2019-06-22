@@ -53,7 +53,6 @@ class TitleLabel: SKLabelCustom {
         super.init()
         super.setup(labelData: labelData)
         name = labelData.text
-        self.fontName = "AmericanTypewriter-Bold"
     }
     
     required init?(coder aDecoder: NSCoder) {
