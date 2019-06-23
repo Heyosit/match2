@@ -8,9 +8,40 @@
 
 import SpriteKit
 
+class ButtonData {
+    var highlightedTexture: String {
+        get {
+            return texture + Consts.Names.ButtonStateNames.highlighted
+        }
+    }
+    var normalTexture: String {
+        get {
+            return texture + Consts.Names.ButtonStateNames.normal
+        }
+    }
+    var disabledTexture: String {
+        get {
+            return texture + Consts.Names.ButtonStateNames.disabled
+        }
+    }
+    var texture: String
+    var name: String
+    var size: CGSize
+    var position: CGPoint
+    var zPosition: CGFloat
+    
+    init(texture: String, name: String, size: CGSize, position: CGPoint, zPosition: CGFloat) {
+        self.texture = texture
+        self.name = name
+        self.size = size
+        self.position = position
+        self.zPosition = zPosition
+    }
+}
+
 class PlayButton: ButtonNode {
     
-    let buttonData = ButtonData(texture: Consts.Names.ButtonImageNames.play, name: Consts.Names.NodesNames.play, size: Consts.Sizes.playButton, position: Positions.playButton, zPosition: Z.buttons)
+    let buttonData = ButtonData(texture: Consts.Names.ButtonImageNames.play, name: Consts.Names.NodesNames.play, size: Sizes.playButton, position: Positions.playButton, zPosition: Z.buttons)
     
     convenience init() {
         self.init(imageNamed: Consts.Names.ButtonImageNames.play, for: .normal)
@@ -28,7 +59,7 @@ class PlayButton: ButtonNode {
 
 class BackButton: ButtonNode {
     
-    let buttonData = ButtonData(texture: Consts.Names.ButtonImageNames.back, name: Consts.Names.NodesNames.back, size: Consts.Sizes.backButton, position: Positions.backButton, zPosition: Z.buttons)
+    let buttonData = ButtonData(texture: Consts.Names.ButtonImageNames.back, name: Consts.Names.NodesNames.back, size: Sizes.backButton, position: Positions.backButton, zPosition: Z.buttons)
     
     convenience init() {
         self.init(imageNamed: Consts.Names.ButtonImageNames.back, for: .normal)

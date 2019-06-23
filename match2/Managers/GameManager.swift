@@ -21,13 +21,11 @@ class GameManager {
         score = Consts.InitialSettings.score
         isGameStarted = false
         isGameOver = false
-        
-        timeToRespond = Consts.InitialSettings.timeToRespond
+        timeToRespond = resetTimer()
     }
     
     func resetTimer() -> TimeInterval {
-        timeToRespond = Consts.InitialSettings.timeToRespond
-        return timeToRespond
+        return Consts.InitialSettings.timeToRespond
     }
     
     

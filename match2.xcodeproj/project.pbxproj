@@ -13,7 +13,6 @@
 		15B0017722B85F3500099FF7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15B0017522B85F3500099FF7 /* LaunchScreen.storyboard */; };
 		15B0017F22B8D91D00099FF7 /* StartScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B0017E22B8D91D00099FF7 /* StartScreen.swift */; };
 		15B0018122B8DA2400099FF7 /* ButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B0018022B8DA2400099FF7 /* ButtonNode.swift */; };
-		15B0018322B8DB4900099FF7 /* ButtonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B0018222B8DB4900099FF7 /* ButtonData.swift */; };
 		15B0018522B8DC1000099FF7 /* Consts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B0018422B8DC1000099FF7 /* Consts.swift */; };
 		15B0018722B8DD7F00099FF7 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B0018622B8DD7F00099FF7 /* Buttons.swift */; };
 		15B0018922B8DDBB00099FF7 /* Labels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B0018822B8DDBB00099FF7 /* Labels.swift */; };
@@ -39,7 +38,6 @@
 		15B0017822B85F3500099FF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		15B0017E22B8D91D00099FF7 /* StartScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreen.swift; sourceTree = "<group>"; };
 		15B0018022B8DA2400099FF7 /* ButtonNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonNode.swift; sourceTree = "<group>"; };
-		15B0018222B8DB4900099FF7 /* ButtonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonData.swift; sourceTree = "<group>"; };
 		15B0018422B8DC1000099FF7 /* Consts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Consts.swift; sourceTree = "<group>"; };
 		15B0018622B8DD7F00099FF7 /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 		15B0018822B8DDBB00099FF7 /* Labels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Labels.swift; sourceTree = "<group>"; };
@@ -117,10 +115,10 @@
 		15B001A122BE47C500099FF7 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				15B0017E22B8D91D00099FF7 /* StartScreen.swift */,
+				15B0018C22B8E08400099FF7 /* BaseScreen.swift */,
 				15B0018A22B8E04000099FF7 /* GameScreen.swift */,
 				15CDA28722BEBA1E00D0FC85 /* GameOverScreen.swift */,
-				15B0018C22B8E08400099FF7 /* BaseScreen.swift */,
-				15B0017E22B8D91D00099FF7 /* StartScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -130,7 +128,6 @@
 			children = (
 				15B0018622B8DD7F00099FF7 /* Buttons.swift */,
 				15B0018022B8DA2400099FF7 /* ButtonNode.swift */,
-				15B0018222B8DB4900099FF7 /* ButtonData.swift */,
 				15B0018822B8DDBB00099FF7 /* Labels.swift */,
 			);
 			path = Nodes;
@@ -208,7 +205,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				15B0018722B8DD7F00099FF7 /* Buttons.swift in Sources */,
-				15B0018322B8DB4900099FF7 /* ButtonData.swift in Sources */,
 				15B0018922B8DDBB00099FF7 /* Labels.swift in Sources */,
 				15B0018F22B8E0AD00099FF7 /* GameManager.swift in Sources */,
 				15B0019322B8E72400099FF7 /* Board.swift in Sources */,

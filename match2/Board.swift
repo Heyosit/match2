@@ -15,7 +15,7 @@ class Board: SKSpriteNode {
     var dataSource = DataSource()
     
     init() {
-        super.init(texture: nil, color: UIColor.white, size: Consts.Sizes.board)
+        super.init(texture: nil, color: UIColor.white, size: Sizes.board)
         createSceneContent()
     }
     
@@ -42,9 +42,8 @@ class Board: SKSpriteNode {
     }
     
     func update(currentTime: TimeInterval) {
-//        debugPrint("updating Board")
         for child in children {
-            if child.name?.contains("block") ?? false {
+            if child.name?.contains(Consts.Names.NodesNames.block) ?? false {
                 let block = child as! BlockSprite
                 block.update(currentTime: currentTime)
             }
@@ -56,12 +55,14 @@ class Board: SKSpriteNode {
     }
 }
 
+
 class GameBoard: SKNode {
     static let shared = GameBoard()
     
     var dataSource = DataSource()
     let board = Board()
     
+    //when the number is back to zero all the blocks as been replaced
     var numberOfBlockMatched = 0
     var hasJustMatched = false
     
@@ -70,17 +71,18 @@ class GameBoard: SKNode {
         self.addChild(board)
     }
 
-    func deleteBlocks() {
-            if gridManager.goodBlocks.count >= 2 {
+    func deleteMatchedBlocks() {
+        let matchedBlocks = gridManager.goodMatchBlocks
+            if matchedBlocks.count >= 2 {
                 hasJustMatched = true
-                numberOfBlockMatched = gridManager.goodBlocks.count
-                for goodBlock in gridManager.goodBlocks {
-                    if let block = board.childNode(withName: "block\(goodBlock.row)\(goodBlock.col)") as! BlockSprite? {
+                numberOfBlockMatched = matchedBlocks.count
+                for matchedBlock in matchedBlocks {
+                    if let block = board.childNode(withName: Consts.Names.NodesNames.block + "\(matchedBlock.row)\(matchedBlock.col)") as! BlockSprite? {
                         block.matched = true
                     }
                 }
-                HUD.shared.score = dataSource.getPoints(x: gridManager.goodBlocks.count)
-                HUD.shared.timeToRespondRemaining = dataSource.getTime(x: gridManager.goodBlocks.count)
+                HUD.shared.score = dataSource.getPoints(x: matchedBlocks.count)
+                HUD.shared.timeToRespondRemaining = dataSource.getTime(x: matchedBlocks.count)
             }
             gridManager.reset()
     }
@@ -88,8 +90,7 @@ class GameBoard: SKNode {
     func printGrid(){
         for row in 0..<8 {
             for col in 0..<8 {
-                debugPrint("nome blocco: ","block\(row)\(col)")
-                if let block = childNode(withName: "block\(row)\(col)") as! BlockSprite? {
+                if let block = childNode(withName: Consts.Names.NodesNames.block +  "\(row)\(col)") as! BlockSprite? {
                     debugPrint("block: ", block.colorName)
                 }
             }
@@ -102,6 +103,7 @@ class GameBoard: SKNode {
     
     func update(currentTime: TimeInterval) {
         board.update(currentTime: currentTime)
+        //after match and block replacement checks if other matches are possible
         if hasJustMatched && numberOfBlockMatched == 0 {
             gridManager.checkAtLeastOneMatchPossible()
             hasJustMatched = false

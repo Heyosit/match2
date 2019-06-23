@@ -14,7 +14,7 @@ class BaseScreen: SKScene, ButtonNodeDelegate {
     var gameManager = GameManager.shared
     
     override init() {
-        super.init(size: Consts.Graphics.size)
+        super.init(size: Consts.Screen.size)
         createSceneContents()
     }
     

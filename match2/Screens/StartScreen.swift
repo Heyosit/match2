@@ -10,10 +10,32 @@ import SpriteKit
 
 class StartScreen: SKScene, ButtonNodeDelegate {
     
+    let titleLabel: SKLabelNode = {
+        let tl = SKLabelNode(text: Consts.Texts.title)
+        tl.name = Consts.Names.LabelNames.title
+        tl.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.center
+        tl.verticalAlignmentMode = SKLabelVerticalAlignmentMode.center
+        tl.zPosition = Z.labels
+        tl.position = Positions.titleLabel
+        tl.fontSize = 40
+        return tl
+    }()
+    
+    let highScoreLabel: SKLabelNode = {
+        let hsl = SKLabelNode(text: Consts.Texts.highScore + "\(UserDefaults.highScore)")
+        hsl.name = Consts.Names.LabelNames.highScore
+        hsl.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.center
+        hsl.verticalAlignmentMode = SKLabelVerticalAlignmentMode.center
+        hsl.zPosition = Z.labels
+        hsl.position = Positions.highScoreLabel
+        hsl.fontSize = 25
+        return hsl
+    }()
+    
+    
     override init() {
-        super.init(size: Consts.Graphics.screenResolution)
+        super.init(size: Consts.Screen.screenResolution)
         createSceneContent()
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -22,16 +44,12 @@ class StartScreen: SKScene, ButtonNodeDelegate {
     
     func createSceneContent() {
         
-        let titleLabel = TitleLabel()
-        scene?.addChild(titleLabel)
-        
         let playButton = PlayButton()
         playButton.delegate = self
         scene?.addChild(playButton)
         
-        let highScoreLabel = HighScoreLabel()
+        scene?.addChild(titleLabel)
         scene?.addChild(highScoreLabel)
-        
     }
     
     func buttonNodeTapped(_ sender: ButtonNode) {

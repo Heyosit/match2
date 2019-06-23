@@ -16,12 +16,9 @@ class GameOverScreen: BaseScreen {
         createSceneContents()
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     override func createSceneContents() {
         super.createSceneContents()
+        
         let highScoreLabel = HighScoreLabel()
         scene?.addChild(highScoreLabel)
         
@@ -32,4 +29,9 @@ class GameOverScreen: BaseScreen {
         scene?.addChild(scoreLabel)
 
     }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
 }

@@ -30,11 +30,11 @@ class GridManager {
     static let shared = GridManager()
     
     var Grid = Array(repeating: Array(repeating: Block(), count: 8), count: 8)
-    var goodBlocks: [GridPosition] = []
+    var goodMatchBlocks: [GridPosition] = []
     
     
     func reset() {
-        goodBlocks.removeAll()
+        goodMatchBlocks.removeAll()
         for row in 0..<Grid.count {
             for col in 0..<Grid.count {
                 Grid[row][col].checked = false
@@ -68,7 +68,7 @@ class GridManager {
         } else {
             Grid[position.row][position.col].checked = true
         }
-        goodBlocks.append(position)
+        goodMatchBlocks.append(position)
         
         var newPosition = GridPosition(row: position.row - 1, col: position.col)
         floodFill(color: color, position: newPosition)
@@ -109,23 +109,23 @@ class GridManager {
     }
     
     private func checkSides(color: String, position: GridPosition) -> Bool{
-        if isTheSame(color: color, position: GridPosition(row: position.row - 1, col: position.col)) {
+        if isTheSameColor(color: color, position: GridPosition(row: position.row - 1, col: position.col)) {
             return true
         }
-        if isTheSame(color: color, position: GridPosition(row: position.row + 1, col: position.col))  {
+        if isTheSameColor(color: color, position: GridPosition(row: position.row + 1, col: position.col))  {
             return true
         }
-        if isTheSame(color: color, position: GridPosition(row: position.row, col: position.col - 1))  {
+        if isTheSameColor(color: color, position: GridPosition(row: position.row, col: position.col - 1))  {
             return true
         }
-        if isTheSame(color: color, position: GridPosition(row: position.row, col: position.col + 1))  {
+        if isTheSameColor(color: color, position: GridPosition(row: position.row, col: position.col + 1))  {
             return true
         }
         return false
         
     }
     
-    private func isTheSame(color: String, position: GridPosition) -> Bool {
+    private func isTheSameColor(color: String, position: GridPosition) -> Bool {
         if position.row >= Grid.count || position.col >= Grid.count || position.row < 0 || position.col < 0{
             return false
         }

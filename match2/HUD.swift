@@ -28,6 +28,7 @@ class HUD: SKNode {
         }
         set {
             GameManager.shared.timeToRespond += newValue
+            // check if time is up
             if GameManager.shared.timeToRespond < 0 {
                 GameManager.shared.timeToRespond = 0
                 GameManager.shared.isGameOver = true
@@ -44,27 +45,17 @@ class HUD: SKNode {
     }
     
     func setup() {
-        
         initializeGame()
-        let labelData = LabelData(name: timerLabel.name!, text: Consts.Texts.timer, position: Positions.timerLabel, zPosition: Z.HUD, fontSize: 60, fontColor: nil)
-        timerLabel.setup(labelData: labelData)
         addChild(scoreLabel)
         addChild(timerLabel)
     }
     
-    
+    // initialize score and timer labels with the start values
     func initializeGame() {
-        let labelData = LabelData(name: scoreLabel.name!, text: "0", position: Positions.scoreLabel, zPosition: Z.HUD, fontSize: 40, fontColor: nil)
+        var labelData = LabelData(name: scoreLabel.name!, text: "0", position: Positions.scoreLabel, zPosition: Z.HUD, fontSize: 40, fontColor: nil)
         scoreLabel.setup(labelData: labelData)
-    }
-    
-    func resetTimer() {
-        timeToRespondRemaining = GameManager.shared.resetTimer()
-    }
-    
-    func showTimer() {
-        timerLabel.text = "\(GameManager.shared.timeToRespond)"
-        timerLabel.isHidden = false
+        labelData = LabelData(name: timerLabel.name!, text: Consts.Texts.timer, position: Positions.timerLabel, zPosition: Z.HUD, fontSize: 60, fontColor: nil)
+        timerLabel.setup(labelData: labelData)
     }
     
     required init?(coder aDecoder: NSCoder) {

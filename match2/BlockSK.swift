@@ -10,12 +10,14 @@ import SpriteKit
 
 class BlockSprite: ButtonNode {
     var dataSource = DataSource()
-    var isAnimating = false
     let timeToAnimate: TimeInterval = 0.3
     var currentTime: TimeInterval = 0
     var endAnimationTime: TimeInterval = 0
+    var gridPosition = GridPosition(row: -1, col: -1)
+    var isAnimating = false
     var matched: Bool = false {
         didSet {
+            // if the block is chosen for the match starts the disappearing animation
             if self.matched {
                 hideBlock()
             }
@@ -24,7 +26,6 @@ class BlockSprite: ButtonNode {
             }
         }
     }
-    var gridPosition = GridPosition(row: -1, col: -1)
     var colorName: String = "clear" {
         didSet {
             setTexture(imageNamed: self.colorName)
@@ -37,9 +38,11 @@ class BlockSprite: ButtonNode {
         colorName = color
         setup(position: position)
     }
+    
+    //sets size and position of the block in the board
     func setup(position: GridPosition){
-        size = Consts.Sizes.block
-        name = "block\(position.row)\(position.col)"
+        size = Sizes.block
+        name = Consts.Names.NodesNames.block + "\(position.row)\(position.col)"
         self.position = CGPoint(x: Positions.startingBlock.x + (Positions.blockSide * CGFloat(position.col)), y: Positions.startingBlock.y - (Positions.blockSide * CGFloat(position.row)))
         gridPosition = position
     }
@@ -47,15 +50,17 @@ class BlockSprite: ButtonNode {
     func setNextColor() {
         let newColor = dataSource.nextColor()
         colorName = newColor
-        
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         if GameManager.shared.isGameOver { state = .normal; return }
+        // wait until the last match end before to start another
         if GameBoard.shared.hasJustMatched { return }
+        // goes on only if the touch starts and ends in the same node
         guard state == .highlighted else { return }
+        
         gridManager.floodFill(color: colorName, position: gridPosition)
-        GameBoard.shared.deleteBlocks()
+        GameBoard.shared.deleteMatchedBlocks()
         super.touchesEnded(touches, with: event)
     }
     
@@ -76,6 +81,7 @@ class BlockSprite: ButtonNode {
     func update(currentTime: TimeInterval) {
         self.currentTime = currentTime
         if !isAnimating { return }
+        //animation ended
         if currentTime > endAnimationTime {
             isAnimating = false
             self.match()

@@ -8,6 +8,24 @@
 
 import SpriteKit
 
+class LabelData {
+    var name: String
+    var text: String
+    var position: CGPoint?
+    var zPosition: CGFloat
+    var fontSize: CGFloat?
+    var fontColor: UIColor?
+    
+    init(name: String, text: String, position: CGPoint?, zPosition: CGFloat, fontSize: CGFloat?, fontColor: UIColor?) {
+        self.name = name
+        self.text = text
+        self.position = position
+        self.zPosition = zPosition
+        self.fontSize = fontSize
+        self.fontColor = fontColor
+    }
+}
+
 class SKLabelCustom: SKLabelNode {
     
     convenience init(name: String) {
@@ -36,23 +54,6 @@ class SKLabelCustom: SKLabelNode {
         self.text = text
     }
 }
-
-class TitleLabel: SKLabelCustom {
-    
-    var labelData = LabelData(name: Consts.Names.LabelNames.title, text: Consts.Texts.title, position: Positions.titleLabel, zPosition: Z.labels, fontSize: 40, fontColor: nil)
-    
-    override init() {
-        super.init()
-        super.setup(labelData: labelData)
-        name = labelData.text
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-}
-
-
 
 class HighScoreLabel: SKLabelCustom {
     
