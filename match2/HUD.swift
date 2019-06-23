@@ -44,7 +44,7 @@ class HUD: SKNode {
         setup()
     }
     
-    func setup() {
+    private func setup() {
         initializeGame()
         addChild(scoreLabel)
         addChild(timerLabel)

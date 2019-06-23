@@ -22,12 +22,12 @@ struct DataSource {
         colorDice = GKRandomDistribution(randomSource: linearRandomSource, lowestValue: 0, highestValue: colors.count - 1 )
     }
     
-    mutating func nextColor() -> String {
+    func nextColor() -> String {
         let nextColor = colorDice.nextInt()
         return colors[nextColor]
     }
     
-    mutating func getPoints(x: Int) -> Int {
+    func getPoints(x: Int) -> Int {
         var pow: Double = (Double(x) - 2) / 5
         pow *= pow
         let points = (x - 1) * 80

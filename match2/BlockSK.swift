@@ -40,7 +40,7 @@ class BlockSprite: ButtonNode {
     }
     
     //sets size and position of the block in the board
-    func setup(position: GridPosition){
+    private func setup(position: GridPosition){
         size = Sizes.block
         name = Consts.Names.NodesNames.block + "\(position.row)\(position.col)"
         self.position = CGPoint(x: Positions.startingBlock.x + (Positions.blockSide * CGFloat(position.col)), y: Positions.startingBlock.y - (Positions.blockSide * CGFloat(position.row)))
@@ -64,7 +64,7 @@ class BlockSprite: ButtonNode {
         super.touchesEnded(touches, with: event)
     }
     
-    func match(){
+    private func match(){
         if matched {
             setNextColor()
             matched = false
@@ -72,7 +72,7 @@ class BlockSprite: ButtonNode {
         }
     }
     
-    func hideBlock(){
+    private func hideBlock(){
         self.isHidden = true
         isAnimating = true
         endAnimationTime = currentTime + timeToAnimate

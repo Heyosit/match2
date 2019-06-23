@@ -32,7 +32,7 @@ class GameScreen: BaseScreen {
         self.addChild(hud)
     }
     
-    public func gameOver() {
+    private func gameOver() {
         gameManager.gameOver()
     }
     
@@ -40,6 +40,7 @@ class GameScreen: BaseScreen {
         // If we don't have a last frame time value, this is the first frame, so delta time will be zero.
         
         if lastUpdateTime <= 0 { lastUpdateTime = currentTime }
+        // stop the timer if the game is in background
         if GameManager.shared.isPaused {
             lastUpdateTime = currentTime
             GameManager.shared.isPaused = false
