@@ -22,8 +22,8 @@ enum Positions {
     
     static let board = Consts.ScreenPositions.screenMid
     static let blockSide = CGFloat(Sizes.block.width + Consts.Screen.spacingWidth)
-    static let startingBlock = CGPoint(x: 0 - Sizes.board.width / 2 + Consts.Screen.spacingWidth * 4,
-                                       y: 0 + (Sizes.board.height / 2 ) - Consts.Screen.spacingWidth * 4)
+    static let startingBlock = CGPoint(x: 0 - Sizes.board.width / 2 + (Sizes.block.width + Consts.Screen.spacingWidth) / 2,
+                                       y: 0 + (Sizes.board.height - Sizes.block.height - Consts.Screen.spacingWidth) / 2)
     static let highScoreLabel = CGPoint(x: Consts.ScreenPositions.screenWidthMid, y: Consts.ScreenPositions.screenLowHalfHeight)
     static let playButton = Consts.ScreenPositions.screenMid
     static let gameOverLabel = Consts.ScreenPositions.screenMid
@@ -37,7 +37,7 @@ enum Positions {
 
 enum Sizes {
     static let board = CGSize(width: Consts.Screen.screenWidth - Consts.Screen.outerSpace,
-                              height: Consts.Screen.screenWidth - Consts.Screen.outerSpace )
+                              height: Consts.Screen.screenWidth - Consts.Screen.outerSpace)
     static let block = CGSize(width: (Sizes.board.width / 8) - Consts.Screen.spacingWidth,
                               height: (Sizes.board.width / 8) - Consts.Screen.spacingWidth)
     static let playButton = CGSize(width: Consts.Screen.screenWidth / 4 , height: Consts.Screen.screenWidth / 4)
