@@ -29,20 +29,19 @@ enum Positions {
     static let gameOverLabel = Consts.ScreenPositions.screenMid
     static let scoreLabel = Consts.ScreenPositions.screenTop
     static let scoreLabelInGameOver = Consts.ScreenPositions.screenTopHalf
-    static let retryButton = CGPoint(x: Consts.ScreenPositions.screenWidthMid, y: Consts.ScreenPositions.screenLowHalfHeight)
     static let timerLabel = CGPoint(x: Consts.ScreenPositions.screenWidthMid, y: 0 + Consts.Screen.spacingHeight)
-    static let backButton = CGPoint(x: Consts.ScreenPositions.screenTopLeft.x + Sizes.backButton.width / 2, y: Consts.ScreenPositions.screenTopLeft.y - Sizes.backButton.height / 2 )
+    static let backButton = CGPoint(x: Consts.ScreenPositions.screenTopLeft.x + Sizes.backButton.width / 2,
+                                    y: Consts.ScreenPositions.screenTopLeft.y - Sizes.backButton.height / 2 )
     static let titleLabel = CGPoint(x: Consts.ScreenPositions.screenWidthMid, y: Consts.Screen.screenHeight - Consts.Screen.spacingHeight * 1.5)
 }
 
 enum Sizes {
-    static let board = CGSize(width: Consts.Screen.screenWidth - Consts.Screen.outerSpace  ,
+    static let board = CGSize(width: Consts.Screen.screenWidth - Consts.Screen.outerSpace,
                               height: Consts.Screen.screenWidth - Consts.Screen.outerSpace )
-    static let block = CGSize(width: (Sizes.board.width / 8) - Consts.Screen.spacingWidth ,
+    static let block = CGSize(width: (Sizes.board.width / 8) - Consts.Screen.spacingWidth,
                               height: (Sizes.board.width / 8) - Consts.Screen.spacingWidth)
     static let playButton = CGSize(width: Consts.Screen.screenWidth / 4 , height: Consts.Screen.screenWidth / 4)
     static let backButton = CGSize(width: Consts.Screen.screenWidth / 6 , height: Consts.Screen.screenWidth / 6)
-    
 }
 
 let colors = [
@@ -81,7 +80,7 @@ struct Consts {
     
     struct InitialSettings {
         static let score: Int = 0
-        static let timeToRespond : TimeInterval = 4
+        static let timeToRespond : TimeInterval = 120
     }
     struct Names {
         struct LabelNames {

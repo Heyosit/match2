@@ -21,13 +21,8 @@ class GameManager {
         score = Consts.InitialSettings.score
         isGameStarted = false
         isGameOver = false
-        timeToRespond = resetTimer()
+        timeToRespond = Consts.InitialSettings.timeToRespond
     }
-    
-    func resetTimer() -> TimeInterval {
-        return Consts.InitialSettings.timeToRespond
-    }
-    
     
     func gameOver() {
         AudioServicesPlaySystemSound(SystemSoundID(1350))
