@@ -38,6 +38,10 @@ class StartScreen: SKScene, ButtonNodeDelegate {
         createSceneContent()
     }
     
+    override func didMove(to view: SKView) {
+        highScoreLabel.text = Consts.Texts.highScore + "\(UserDefaults.highScore)"
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
