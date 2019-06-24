@@ -27,9 +27,12 @@ class GameScreen: BaseScreen {
     override func createSceneContents() {
         super.createSceneContents()
         hud.initializeGame()
-        gameManager.isGameStarted = true
         self.addChild(gameBoard)
         self.addChild(hud)
+    }
+    
+    override func sceneDidLoad() {
+        gameManager.isGameStarted = true
     }
     
     private func gameOver() {

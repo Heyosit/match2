@@ -84,16 +84,13 @@
 		15B0016B22B85F3400099FF7 /* match2 */ = {
 			isa = PBXGroup;
 			children = (
-				15B0016C22B85F3400099FF7 /* AppDelegate.swift */,
-				15B0018422B8DC1000099FF7 /* Consts.swift */,
 				15B001A022BE47A000099FF7 /* Managers */,
 				15B001A122BE47C500099FF7 /* Screens */,
 				15B001A222BE47F300099FF7 /* Nodes */,
-				15B0019222B8E72400099FF7 /* Board.swift */,
-				15B001A322BE695900099FF7 /* BlockSK.swift */,
+				15CDA28922C02D1600D0FC85 /* Utility */,
+				15B0016C22B85F3400099FF7 /* AppDelegate.swift */,
 				15B0019822BAA88E00099FF7 /* DataSource.swift */,
 				15B0019022B8E13900099FF7 /* UserDefault.swift */,
-				15B0019A22BE153D00099FF7 /* HUD.swift */,
 				15B0016E22B85F3400099FF7 /* RootViewController.swift */,
 				15B0017022B85F3400099FF7 /* Main.storyboard */,
 				15B0019E22BE22BC00099FF7 /* Assets.xcassets */,
@@ -126,11 +123,22 @@
 		15B001A222BE47F300099FF7 /* Nodes */ = {
 			isa = PBXGroup;
 			children = (
-				15B0018622B8DD7F00099FF7 /* Buttons.swift */,
 				15B0018022B8DA2400099FF7 /* ButtonNode.swift */,
-				15B0018822B8DDBB00099FF7 /* Labels.swift */,
+				15B001A322BE695900099FF7 /* BlockSK.swift */,
+				15B0019222B8E72400099FF7 /* Board.swift */,
+				15B0019A22BE153D00099FF7 /* HUD.swift */,
 			);
 			path = Nodes;
+			sourceTree = "<group>";
+		};
+		15CDA28922C02D1600D0FC85 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				15B0018422B8DC1000099FF7 /* Consts.swift */,
+				15B0018822B8DDBB00099FF7 /* Labels.swift */,
+				15B0018622B8DD7F00099FF7 /* Buttons.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

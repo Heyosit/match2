@@ -29,13 +29,17 @@ class BaseScreen: SKScene, ButtonNodeDelegate {
         if let name = sender.name {
             switch name {
             case Consts.Names.NodesNames.back:
-                gameManager.resetGame()
-                GameBoard.shared.resetBoard()
-                RootViewController.shared.skView.presentScene(StartScreen())
+                resetGame()
+                RootViewController.shared.skView.presentScene(RootViewController.shared.startScreen)
             default:
                 break
             }
         }
+    }
+    
+    func resetGame() {
+        gameManager.resetGame()
+        GameBoard.shared.resetBoard()
     }
     
     required init?(coder aDecoder: NSCoder) {

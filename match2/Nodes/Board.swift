@@ -30,11 +30,15 @@ class Board: SKSpriteNode {
                 addChild(block)
             }
         }
+        //create a new board if no match is possible from the beginning
+        while !gridManager.checkAtLeastOneMatchPossible() {
+            reset()
+        }
     }
     
     func reset() {
         for child in children {
-            if child.name?.contains("block") ?? false {
+            if child.name?.contains(Consts.Names.NodesNames.block) ?? false {
                 let block = child as! BlockSprite
                 block.setNextColor()
             }
@@ -105,7 +109,9 @@ class GameBoard: SKNode {
         board.update(currentTime: currentTime)
         //after match and block replacement checks if other matches are possible
         if hasJustMatched && numberOfBlockMatched == 0 {
-            gridManager.checkAtLeastOneMatchPossible()
+            if !gridManager.checkAtLeastOneMatchPossible() {
+                GameManager.shared.gameOver()
+            }
             hasJustMatched = false
         }
     }

@@ -11,6 +11,8 @@ import SpriteKit
 class RootViewController: UIViewController {
     static let shared = RootViewController()
     
+    let startScreen = StartScreen()
+    
     var skView: SKView {
         return view as! SKView
     }
@@ -21,7 +23,7 @@ class RootViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        skView.presentScene(StartScreen())
+        skView.presentScene(startScreen)
     }
     
     override func didReceiveMemoryWarning() {

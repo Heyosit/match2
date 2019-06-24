@@ -27,7 +27,24 @@ class GameOverScreen: BaseScreen {
         
         let scoreLabel = ScoreLabel()
         scene?.addChild(scoreLabel)
+        
+        let retryButton = RetryButton()
+        retryButton.delegate = self
+        scene?.addChild(retryButton)
 
+    }
+    
+    override func buttonNodeTapped(_ sender: ButtonNode) {
+        super.buttonNodeTapped(sender)
+        if let name = sender.name {
+            switch name {
+            case Consts.Names.NodesNames.retry:
+                resetGame()
+                RootViewController.shared.skView.presentScene(GameScreen())
+            default:
+                break
+            }
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {

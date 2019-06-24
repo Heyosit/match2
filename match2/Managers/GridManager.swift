@@ -85,7 +85,7 @@ class GridManager {
         Grid[position.row][position.col].setup(color: color)
     }
     
-    func checkAtLeastOneMatchPossible() {
+    func checkAtLeastOneMatchPossible() -> Bool {
         
         var canMatch = false
         var row = 0
@@ -96,16 +96,16 @@ class GridManager {
                 if (col + row) % 2 == 0 {
                     let gridPos = GridPosition(row: row, col: col)
                     canMatch = checkSides(color: Grid[row][col].color, position: gridPos)
+                    if canMatch {
+                        return true
+                    }
                 }
                 col += 1
             }
             row += 1
             col = 0
         }
-        if !canMatch {
-            debugPrint("No match is possible")
-            GameManager.shared.gameOver()
-        }
+        return canMatch
     }
     
     private func checkSides(color: String, position: GridPosition) -> Bool{

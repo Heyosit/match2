@@ -24,14 +24,16 @@ enum Positions {
     static let blockSide = CGFloat(Sizes.block.width + Consts.Screen.spacingWidth)
     static let startingBlock = CGPoint(x: 0 - Sizes.board.width / 2 + (Sizes.block.width + Consts.Screen.spacingWidth) / 2,
                                        y: 0 + (Sizes.board.height - Sizes.block.height - Consts.Screen.spacingWidth) / 2)
-    static let highScoreLabel = CGPoint(x: Consts.ScreenPositions.screenWidthMid, y: Consts.ScreenPositions.screenLowHalfHeight)
-    static let playButton = Consts.ScreenPositions.screenMid
-    static let gameOverLabel = Consts.ScreenPositions.screenMid
+    static let playButton = CGPoint(x: Consts.ScreenPositions.screenWidthMid, y: Consts.ScreenPositions.screenHeightMid - Sizes.playButton.height)
+    static let gameOverLabel = CGPoint(x: Consts.ScreenPositions.screenWidthMid, y: Positions.backButton.y - Consts.Screen.spacingHeight - Sizes.backButton.height )
     static let scoreLabel = Consts.ScreenPositions.screenTop
     static let scoreLabelInGameOver = Consts.ScreenPositions.screenTopHalf
+    static let highScoreLabel = CGPoint(x: Positions.scoreLabelInGameOver.x, y: Consts.ScreenPositions.screenTopHalf.y - 50)
+
     static let timerLabel = CGPoint(x: Consts.ScreenPositions.screenWidthMid, y: 0 + Consts.Screen.spacingHeight)
     static let backButton = CGPoint(x: Consts.ScreenPositions.screenTopLeft.x + Sizes.backButton.width / 2,
                                     y: Consts.ScreenPositions.screenTopLeft.y - Sizes.backButton.height / 2 )
+    static let retryButton = Consts.ScreenPositions.screenLowHalf
     static let titleLabel = CGPoint(x: Consts.ScreenPositions.screenWidthMid, y: Consts.Screen.screenHeight - Consts.Screen.spacingHeight * 1.5)
 }
 
@@ -42,6 +44,7 @@ enum Sizes {
                               height: (Sizes.board.width / 8) - Consts.Screen.spacingWidth)
     static let playButton = CGSize(width: Consts.Screen.screenWidth / 4 , height: Consts.Screen.screenWidth / 4)
     static let backButton = CGSize(width: Consts.Screen.screenWidth / 6 , height: Consts.Screen.screenWidth / 6)
+    static let retryButton = CGSize(width: Consts.Screen.screenWidth / 3 , height: Consts.Screen.screenWidth / 3)
 }
 
 let colors = [
