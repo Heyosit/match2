@@ -19,7 +19,7 @@ class HUD: SKNode {
         }
         set {
             GameManager.shared.score += newValue
-            scoreLabel.setText(text: "\(GameManager.shared.score)")
+            scoreLabel.text = "\(GameManager.shared.score)"
         }
     }
     var timeToRespondRemaining: TimeInterval {
@@ -34,7 +34,7 @@ class HUD: SKNode {
                 GameManager.shared.isGameOver = true
             }
             let rounded = Int(GameManager.shared.timeToRespond)
-            timerLabel.setText(text: "\(rounded)")
+            timerLabel.text = "\(rounded)"
         }
     }
     

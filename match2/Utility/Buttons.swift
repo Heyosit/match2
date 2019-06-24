@@ -19,11 +19,11 @@ class ButtonData {
             return texture + Consts.Names.ButtonStateNames.normal
         }
     }
-    var disabledTexture: String {
-        get {
-            return texture + Consts.Names.ButtonStateNames.disabled
-        }
-    }
+//    var disabledTexture: String {
+//        get {
+//            return texture + Consts.Names.ButtonStateNames.disabled
+//        }
+//    }
     var texture: String
     var name: String
     var size: CGSize

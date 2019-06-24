@@ -18,6 +18,8 @@ class StartScreen: SKScene, ButtonNodeDelegate {
         tl.zPosition = Z.labels
         tl.position = Positions.titleLabel
         tl.fontSize = 40
+        tl.fontName = "SanFrancisco-Bold"
+
         return tl
     }()
     
@@ -29,6 +31,7 @@ class StartScreen: SKScene, ButtonNodeDelegate {
         hsl.zPosition = Z.labels
         hsl.position = Positions.highScoreLabel
         hsl.fontSize = 25
+        hsl.fontName = "SanFrancisco-Bold"
         return hsl
     }()
     

@@ -50,9 +50,6 @@ class SKLabelCustom: SKLabelNode {
         }
         
     }
-    func setText(text:String) {
-        self.text = text
-    }
 }
 
 class HighScoreLabel: SKLabelCustom {
@@ -63,6 +60,7 @@ class HighScoreLabel: SKLabelCustom {
         super.init()
         super.setup(labelData: labelData)
         name = labelData.text
+        fontName = "SanFrancisco-Bold"
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -78,6 +76,7 @@ class GameOverLabel: SKLabelCustom {
         super.init()
         super.setup(labelData: labelData)
         name = labelData.text
+        fontName = "SanFrancisco-Bold"
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -93,6 +92,8 @@ class ScoreLabel: SKLabelCustom {
         super.init()
         super.setup(labelData: labelData)
         name = labelData.text
+        fontName = "SanFrancisco-Bold"
+
     }
     
     required init?(coder aDecoder: NSCoder) {
