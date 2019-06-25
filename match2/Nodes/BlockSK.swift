@@ -55,7 +55,7 @@ class BlockSprite: ButtonNode {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         if GameManager.shared.isGameOver { state = .normal; return }
         // wait until the last match end before to start another
-        if GameBoard.shared.hasJustMatched { return }
+        if GameBoard.shared.hasJustMatched {state = .normal; return }
         // goes on only if the touch starts and ends in the same node
         guard state == .highlighted else { return }
         
