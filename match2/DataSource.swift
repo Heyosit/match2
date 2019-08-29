@@ -28,18 +28,17 @@ struct DataSource {
     }
     
     func getPoints(x: Int) -> Int {
-        var pow: Double = (Double(x) - 2) / 5
-        pow *= pow
+        var pow: Double = (Double(x) - 2)
+        pow *= pow * 5
         let points = (x - 1) * 80
         let total = Double(points) + pow
         return Int(total);
     }
     
     func getTime(x: Int) -> TimeInterval {
-        var pow: Double = (Double(x) - 2) / 3
+        var pow: Double = (Double(x) - 2) / 5
         pow *= pow
-        // The original forumla add too much time, probably this one was the right one?
-        let totalTime = 10 + (pow * 20)
+        let totalTime = (pow * 10)
         return TimeInterval(totalTime)
     }
 }
